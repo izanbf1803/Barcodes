@@ -1,3 +1,5 @@
+// Source: https://github.com/barnhill/Code128_CPP/blob/master/Code128_CPlusPlus/C128_Defines.h
+
 #ifndef __BARCODE_DEFINITIONS_H__
 #define __BARCODE_DEFINITIONS_H__
 

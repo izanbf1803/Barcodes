@@ -31,11 +31,13 @@ int main()
 		}
 	}*/
 
-	string data = "izanbf1803";
+	string data = "CSE370";
 
 	barcode bc(data, CodeSet::A);
 
+	bc.generateBarCode();
 
+	cin.ignore();
 
 	return 0;
 }

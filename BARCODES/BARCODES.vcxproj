@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="barcode.h" />
+    <ClInclude Include="barcode_definitions.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{97A6BCEE-F95E-44F4-9B5B-FEA515BD3FAA}</ProjectGuid>
