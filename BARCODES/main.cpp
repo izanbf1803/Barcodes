@@ -1,17 +1,9 @@
 #include "barcode.h"
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <bitset>
 
 using namespace std;
 
 const int width = 255, height = 255;
-
-#define BLACK 1
-#define WHITE 0
-#define B_COLOR "0 0 0"
-#define W_COLOR "255 255 255"
 
 int main()
 {
@@ -31,11 +23,11 @@ int main()
 		}
 	}*/
 
-	string data = "CSE370";
+	string data = "BY: IZANBF1803";
 
 	barcode bc(data, CodeSet::A);
 
-	bc.generateBarCode();
+	bc.generateBarCode("bc.ppm", 10, 500);
 
 	cin.ignore();
 

@@ -5,7 +5,13 @@
 #include <vector>
 #include <sstream>
 #include <bitset>
+#include <fstream>
 #include <iostream>	// REMOVE
+
+#define BLACK 1
+#define WHITE 0
+#define B_COLOR "0 0 0"
+#define W_COLOR "255 255 255"
 
 using namespace std;
 
@@ -31,12 +37,12 @@ class barcode
 public:
 	barcode::barcode(string data, CodeSet type);	
 	~barcode();
+	void generateBarCode(string out_file, int bar_width, int bar_hegight);
 
 	vector<element_t*>* C128;
 private:
 	void init_C128();
 	void format();
-	void generateBarCode(string out_file, int bar_width, int bar_hegight);
 	int getCharValue(string c, CodeSet type);
 	string getCharBits(string c, CodeSet type);
 	string getValBits(string val);

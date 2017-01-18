@@ -57,7 +57,7 @@ void barcode::init_C128()
 	(*C128)[24]  = new element_t("24", "8", "8", "24", "11101001100");
 	(*C128)[25]  = new element_t("25", "9", "9", "25", "11100101100");
 	(*C128)[26]  = new element_t("26", ":", ":", "26", "11100100110");
-	(*C128)[27] = new element_t("27", ";", ";", "27", "11101100100");
+	(*C128)[27]  = new element_t("27", ";", ";", "27", "11101100100");
 	(*C128)[28]  = new element_t("28", "<", "<", "28", "11100110100");
 	(*C128)[29]  = new element_t("29", "=", "=", "29", "11100110010");
 	(*C128)[30]  = new element_t("30", ">", ">", "30", "11011011000");
@@ -139,11 +139,27 @@ void barcode::init_C128()
 	(*C128)[106] = new element_t("106", STOP, STOP, STOP, "1100011101011");
 }
 
-void barcode::generateBarCode(string out_file, int bar_width, int bar_hegight)
+void barcode::generateBarCode(string out_file, int bar_width, int bar_height)
 {
 	format();
 
-	// TODO: implement image write
+	cout << formattedData << endl;
+
+	ofstream img("qr.ppm");
+	img << "P3" << endl;
+	img << bar_width * formattedData.size() << " " << bar_height << endl;
+	img << "255" << endl;
+
+	for (int j = 0; j < bar_height; j++) {
+		for (int i = 0; i < formattedData.size(); i++) {
+			if (formattedData[i] - '0' == WHITE)
+				for (int k = 0; k < bar_width; k++)
+					img << W_COLOR << endl;
+			else
+				for (int k = 0; k < bar_width; k++)
+					img << B_COLOR << endl;
+		}
+	}
 }
 
 int barcode::getCharValue(string c, CodeSet type) 
