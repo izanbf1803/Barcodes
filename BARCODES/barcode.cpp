@@ -145,20 +145,17 @@ void barcode::generateBarCode(string out_file, int bar_width, int bar_height)
 
 	cout << formattedData << endl;
 
-	ofstream img("qr.ppm");
-	img << "P3" << endl;
+	ofstream img(out_file);
+	img << "P1" << endl;
 	img << bar_width * formattedData.size() << " " << bar_height << endl;
-	img << "255" << endl;
 
 	for (int j = 0; j < bar_height; j++) {
 		for (int i = 0; i < formattedData.size(); i++) {
-			if (formattedData[i] - '0' == WHITE)
-				for (int k = 0; k < bar_width; k++)
-					img << W_COLOR << endl;
-			else
-				for (int k = 0; k < bar_width; k++)
-					img << B_COLOR << endl;
+			for (int l = 0; l < bar_width; l++) {
+				img << formattedData[i] << " ";
+			}
 		}
+		img << endl;
 	}
 }
 

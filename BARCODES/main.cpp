@@ -27,7 +27,7 @@ int main()
 
 	barcode bc(data, CodeSet::A);
 
-	bc.generateBarCode("bc.ppm", 10, 500);
+	bc.generateBarCode("barcode_example.ppm", 10, 500);
 
 	cin.ignore();
 
